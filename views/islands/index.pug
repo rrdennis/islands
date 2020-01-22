@@ -2,5 +2,12 @@ extends ../layout
 
 block content
   h1= title
-  a(href='/islands/new') island time
+  if user
+    a(href='/islands/new') get some
+    br
+    a(href='/logout') get goin
+  else
+    a(href='/auth/google') get started
+  br
+  br
   
