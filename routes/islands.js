@@ -3,6 +3,8 @@ var router = express.Router();
 var islandsCtrl = require('../controllers/islands');
 
 router.get('/', islandsCtrl.index);
-router.get('/new', islandsCtrl.newIsland);
+router.post('/', islandsCtrl.createSong);
+
+router.get('/new', islandsCtrl.newSong);
 
 module.exports = router;

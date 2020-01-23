@@ -3,11 +3,15 @@ extends ../layout
 block content
   h1= title
   if user
+    img(src=user.avatar)
     a(href='/islands/new') get some
-    br
+    p or
     a(href='/logout') get goin
   else
     a(href='/auth/google') get started
   br
   br
+  each song in songs
+    p= song.name + ' - ' + song.artist + ' - ' + song.year
+
   

@@ -1,19 +1,31 @@
-const Island = require('../models/island');
+const User = require('../models/user');
+const Song = require('../models/song');
 
 const index = (req, res) => {
-  res.render('islands/index', {
-    user: req.user,
-    title: 'Your Islands'
+  Song.find({}, (err, songs) => {
+    res.render('islands/index', {
+      user: req.user,
+      title: 'Islands',
+      songs
+    });
   });
 };
 
-const newIsland = (req, res) => {
+const newSong = (req, res) => {
   res.render('islands/new', {
-    title: 'Create Island'
+    title: 'Add A Song'
+  });
+};
+
+const createSong = (req, res) => {
+  req.body.year = Number(req.body.year);
+  Song.create(req.body, (err, song) => {
+    res.redirect('/islands');
   });
 };
 
 module.exports = {
   index,
-  newIsland
+  newSong,
+  createSong
 };
