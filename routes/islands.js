@@ -7,4 +7,6 @@ router.post('/', islandsCtrl.createSong);
 
 router.get('/new', islandsCtrl.newSong);
 
+router.get('/:id', islandsCtrl.showSong);
+
 module.exports = router;

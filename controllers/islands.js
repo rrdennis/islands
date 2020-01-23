@@ -24,8 +24,18 @@ const createSong = (req, res) => {
   });
 };
 
+const showSong = (req, res) => {
+  Song.findById(req.params.id, (err, song) => {
+    res.render('islands/show', {
+      title: 'View Song',
+      song
+    });  
+  });
+};
+
 module.exports = {
   index,
   newSong,
-  createSong
+  createSong,
+  showSong
 };

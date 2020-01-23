@@ -12,6 +12,5 @@ block content
   br
   br
   each song in songs
-    p= song.name + ' - ' + song.artist + ' - ' + song.year
-
-  
+    p= `${song.name} - ${song.artist} - ${song.year} `
+      a(href=`/islands/${song._id}`) visit
