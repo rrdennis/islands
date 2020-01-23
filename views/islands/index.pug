@@ -3,12 +3,11 @@ extends ../layout
 block content
   h1= title
   if user
-    img(src=user.avatar)
-    a(href='/islands/new') get some
-    p or
-    a(href='/logout') get goin
+      a(href='/islands/new') add a song
+      p or
+      a(href='/logout') log out
   else
-    a(href='/auth/google') get started
+    a(href='/auth/google') log in
   br
   br
   each song in songs

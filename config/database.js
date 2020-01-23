@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/islands', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true
+  useCreateIndex: true,
+  useFindAndModify: false
 });
 
 mongoose.connection.on('connected', () => {

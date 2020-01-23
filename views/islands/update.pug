@@ -1,0 +1,18 @@
+extends ../layout
+
+block content
+  h1= title
+  form(action=`/islands/${song._id}?_method=PUT` method='POST')
+    label= `${song.name}? More like ` 
+      input(type='text' name='name')
+    br
+    br
+    label= `${song.artist}? Closer to `
+      input(type='text' name='artist')
+    br
+    br
+    label= `${song.year}? Let's try `
+      input(type='text' name='year')
+    br
+    br
+    button(type='submit') update it

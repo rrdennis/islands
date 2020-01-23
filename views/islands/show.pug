@@ -3,3 +3,6 @@ extends ../layout
 block content
   h1= title
   p= `${song.name} - ${song.artist} - ${song.year} `
+  p
+    a(href=`/islands/${song._id}/update`) update song
+  //- h3 Add a note
