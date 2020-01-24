@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+  h1= title
+  if user
+    p=`Hello, ${user.name}`
+  p= `${song.name} - ${song.artist} - ${song.year} `
+  form(action=`/islands/${song._id}/notes` method='POST')
+    input(type='textarea' name='note')
+    br
+    br
+    button(type='submit') add ya note
+
+  

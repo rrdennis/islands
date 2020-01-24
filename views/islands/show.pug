@@ -4,9 +4,14 @@ block content
   h1= title
   p= `Hello, ${user.name}`
   p= `${song.name} - ${song.artist} - ${song.year} `
-  button
-    a(href=`/islands/${song._id}/update`) update song
+  a(href=`/islands/${song._id}/notes/new`) add a note
+  br
+  br
+  a(href=`/islands/${song._id}/update`) update song
+  br
+  br
   form(action=`/islands/${song._id}?_method=DELETE` method='POST')
     button(type='submit') delete song
+  br
   a(href='/islands') return
   //- h3 Add a note
