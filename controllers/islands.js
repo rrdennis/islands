@@ -44,13 +44,32 @@ const showUpdate = (req, res) => {
 
 const updateSong = (req, res) => {
   Song.findById(req.params.id, (err, song) => {
-    if (req.body.name) song.name = req.body.name;
-    if (req.body.artist) song.artist = req.body.artist;
-    if (req.body.year) song.year = Number(req.body.year);
+    if (req.body.name) {
+      song.name = req.body.name;
+    }
+    if (req.body.artist) {
+      song.artist = req.body.artist;
+    }
+    if (req.body.year) {
+      song.year = Number(req.body.year);
+    }
     song.save(err => {
       if (err) return res.render('error');
       res.render('islands/show', {
+        title: 'View Song',
         song
+      });
+    });
+  });
+};
+
+const deleteSong = (req, res) => {
+  Song.findByIdAndDelete(req.params.id, err => {
+    if (err) return res.render('error');
+    Song.find({}, (err, songs) => {
+      res.render('islands/index', {
+        title: 'Islands',
+        songs
       });
     });
   });
@@ -61,6 +80,7 @@ module.exports = {
   newSong,
   createSong,
   showSong,
+  showUpdate,
   updateSong,
-  showUpdate
+  deleteSong
 };

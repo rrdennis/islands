@@ -3,6 +3,9 @@ extends ../layout
 block content
   h1= title
   p= `${song.name} - ${song.artist} - ${song.year} `
-  p
+  button
     a(href=`/islands/${song._id}/update`) update song
+  form(action=`/islands/${song._id}?_method=DELETE` method='POST')
+    button(type='submit') delete song
+  a(href='/islands') return
   //- h3 Add a note
