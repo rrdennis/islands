@@ -13,6 +13,7 @@ const index = (req, res) => {
 
 const newSong = (req, res) => {
   res.render('islands/new', {
+    user: req.user,
     title: 'Add A Song'
   });
 };
@@ -27,6 +28,7 @@ const createSong = (req, res) => {
 const showSong = (req, res) => {
   Song.findById(req.params.id, (err, song) => {
     res.render('islands/show', {
+      user: req.user,
       title: 'View Song',
       song
     });  
@@ -36,6 +38,7 @@ const showSong = (req, res) => {
 const showUpdate = (req, res) => {
   Song.findById(req.params.id, (err, song) => {
     res.render('islands/update', {
+      user: req.user,
       title: 'Update Song',
       song
     });  
@@ -56,6 +59,7 @@ const updateSong = (req, res) => {
     song.save(err => {
       if (err) return res.render('error');
       res.render('islands/show', {
+        user: req.user,
         title: 'View Song',
         song
       });
@@ -68,6 +72,7 @@ const deleteSong = (req, res) => {
     if (err) return res.render('error');
     Song.find({}, (err, songs) => {
       res.render('islands/index', {
+        user: req.user,
         title: 'Islands',
         songs
       });

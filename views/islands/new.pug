@@ -2,6 +2,7 @@ extends ../layout
 
 block content
   h1= title
+  p= `Hello, ${user.name}`
   form(action='/islands' method='POST')
     label what's da name? 
       input(type='text' name='name')

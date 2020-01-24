@@ -2,6 +2,7 @@ extends ../layout
 
 block content
   h1= title
+  p= `Hello, ${user.name}`
   p= `${song.name} - ${song.artist} - ${song.year} `
   button
     a(href=`/islands/${song._id}/update`) update song

@@ -2,6 +2,7 @@ extends ../layout
 
 block content
   h1= title
+  p= `Hello, ${user.name}`
   form(action=`/islands/${song._id}?_method=PUT` method='POST')
     label= `${song.name}? More like ` 
       input(type='text' name='name')

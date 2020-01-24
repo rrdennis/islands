@@ -3,9 +3,10 @@ extends ../layout
 block content
   h1= title
   if user
-      a(href='/islands/new') add a song
-      p or
-      a(href='/logout') log out
+    p= `Hello, ${user.name}`
+    a(href='/islands/new') add a song
+    p or
+    a(href='/logout') log out
   else
     a(href='/auth/google') log in
   br
